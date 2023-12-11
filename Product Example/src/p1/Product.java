@@ -13,12 +13,12 @@ public class Product {
 	}
 	public static void main(String[] args) {
 		Product p1 = new Product(),p2 = new Product(), p3 = new Product();
-		
+		//literal process
 		p1.pname = "Mouse";
 		p1.pid = "A111";
 		p1.pprice = 457.54f;
 		p1.pqty = 74;
-		
+		//using method
 		p2.setDetails("CDDR","A122",584.56f,58);
 		
 		p3.pname = "FDDR";
