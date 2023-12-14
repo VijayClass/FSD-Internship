@@ -36,7 +36,6 @@ public class Employee {
 			float bsal = Float.parseFloat(sc.nextLine());
 			emparr[i] = new Employee(name, id, bsal);
 		}
-		
 		for(Employee temp:emparr)
 			temp.getDetails();
 			
