@@ -6,3 +6,15 @@ c) Override boolean equals(Object object) method to check that two circle
 object are same or not.
 d) Write method that will return area of Circle(no argument)
 e) Write method that will take one Circle object as argument and return its area
+
+
+Write a class Account that will account number, name of account holder, balance as
+member data and have following member function:
+A. Zero argument and parameterized constructors ,print method
+B. Write a method that will take one Account object and money as argument and
+deposit money in this account.
+C. Write a method that will take one Account and money as argument and
+withdraw money from this account. Give proper message if balance is not
+available.
+D. Write a method that will take two Account and money as argument and return an
+account having max balance.
