@@ -1,0 +1,8 @@
+1-Design a class Circle having radius(type float) as a instance variable and make
+following member methods
+a) Zero argument and parameterized constructors
+b) Override String toString() method return radius of Circle object
+c) Override boolean equals(Object object) method to check that two circle
+object are same or not.
+d) Write method that will return area of Circle(no argument)
+e) Write method that will take one Circle object as argument and return its area
