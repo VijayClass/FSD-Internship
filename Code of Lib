@@ -1,0 +1,109 @@
+package p1;
+
+import java.util.HashSet;
+import java.util.LinkedHashSet;
+import java.util.Scanner;
+import java.util.Set;
+import java.util.TreeSet;
+
+public class LibraryManagementSystem {
+	Set<Book> booksearch;
+	Set<Book> newBooks;
+	Set<Book> sortedBooks;
+	public LibraryManagementSystem() {
+		this.booksearch = new HashSet<Book>();
+		this.newBooks = new LinkedHashSet<>();
+		this.sortedBooks = new TreeSet<>();
+	}
+	
+	public static void main(String args[])
+	{
+		LibraryManagementSystem ob = new LibraryManagementSystem();
+		Scanner sc = new Scanner(System.in);
+		while(true)
+		{
+			System.out.println("3.findbook\n2.add new Book\n1.Show Books in chrono");
+			switch(Integer.parseInt(sc.nextLine()))
+			{
+			case 1:
+				ob.showallBooks();
+				break;
+			case 2:
+				ob.addbook(sc);
+				break;
+			case 3:
+				ob.findBook(sc);
+				break;
+			case 4:
+				sc.close();
+				System.exit(0);
+			}
+			
+		}
+	}
+
+	private void findBook(Scanner sc) {
+		System.out.println("Enter Name of Book");
+		String name = sc.nextLine();
+		if(bookfinder(name))
+		{
+			System.out.println("Book Avaialble");
+		}
+		else
+			System.out.println("Book Not Available");
+	}
+
+	private boolean bookfinder(String name1) {
+		for(Book b:booksearch)
+			if(b.name.equalsIgnoreCase(name1))
+				return true;
+		return false;
+	}
+
+	private void showallBooks() {
+		for(Book temp:sortedBooks)
+		{
+			System.out.println(temp.toString());
+		}
+	}
+
+	private void addbook(Scanner sc) {
+		System.out.print("Enter Book Name: ");
+		String name = sc.nextLine();
+		System.out.println("Enter Author");
+		String author = sc.nextLine();
+		System.out.println("Enter Price");
+		float price = Float.parseFloat(sc.nextLine());
+		if(newBooks.add(new Book(name,author,price)))
+		{
+			booksearch.add(new Book(name,author,price));
+			sortedBooks.add(new Book(name,author,price));
+		}
+		else
+			System.out.println("Book is not added");
+	}
+	
+}
+----------
+package p1;
+
+public class Book implements Comparable<Book>{
+	String name,author;
+	float price;
+	public Book(String name, String author, float price) {
+		this.name = name;
+		this.author = author;
+		this.price = price;
+	}
+	@Override
+	public String toString() {
+		return "Book [name=" + name + ", author=" + author + ", price=" + price + "]";
+	}
+	
+	
+	public int compareTo(Book b)
+	{
+		return Float.compare(this.price, b.price);
+	}
+	
+}
